@@ -9,6 +9,8 @@
 #include <psapi.h>
 #include <tlhelp32.h>
 #include <stdexcept>
+#include <winternl.h>
+
 
 typedef long long int BIN_OFFSET;
 
@@ -17,6 +19,7 @@ public:
 	static DWORD get_pid_by_proc_name(PCSTR process_name);
 	static HANDLE open_process_by_name(PCSTR process_name);
 	static LPVOID get_module_base(HANDLE proc, HMODULE p_module);
+	static LPVOID get_process_base(HANDLE proc);
 	static DWORD get_module_size(HANDLE proc, HMODULE p_module);
 };
 
